@@ -1,14 +1,72 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
         <title>Vizcovid</title>
         <link rel="stylesheet" href="style.css" class="">
+        <link rel="stylesheet" href="bulma.min.css" class="">
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+        <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
     </head>
     <body>
-        <div id="vue-app">
-            <p>{{ message }}</p>
+        <div id="vue-app" class="section">
+            <div class="select">
+                <select v-model="selected" @change="getCountryData(this.selected)">
+                    <option 
+                    v-for="country in countries"
+                    v-bind:value="country">
+                        {{ country }}
+                    </option>
+                </select>
+            </div>
+
+            <section class="section">
+                <div class="container">
+                    <div class="columns"  v-if="rawJson != ''">
+                        <div class="column">
+                            <h2>Confirmed Cases: </h2>
+                            {{ latest.confirmed  }}
+                        </div>
+                        <div class="column">
+                          <h2>Deaths</h2>
+                          {{ latest.deaths }}
+                        </div>
+                        <div class="column">
+                          <h2>Recovered</h2>
+                          {{ latest.recovered }}
+                        </div>
+                        
+                </div>
+            </section>
+
+            <section id="chart">
+                <dc></dc>
+            </section>
+
+            <section class="section">
+                <table class="table is-narrow is-fullwidth">
+                    <thead>
+                        <th>Date</th>
+                        <th>Confirmed</th>
+                        <th>Deaths</th>
+                        <th>Recovered</th>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(result, name) in rawJson.result" v-if="result.confirmed > 0">
+                            <td>{{ name }}</td>
+                            <td v-for="cols in result">{{ cols }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <!-- <ul>
+                <li v-for="result in rawJson.result">
+                    {{ result }}
+                </li>
+            </ul> -->
+            <!-- <p>{{ message }}</p> -->
         </div>
 
         <script src="app.js"></script>
