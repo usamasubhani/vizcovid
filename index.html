@@ -42,7 +42,11 @@
             </section>
 
             <section id="chart">
-                <dc></dc>
+                <!-- {{ dataChart }} -->
+                <!-- <dc :chart-data="dataChart"></dc>
+                <button @click="getData()">Randomize</button> -->
+                <!-- <button v-on:click="changeData">Change data</button> -->
+                <line-chart :data="dataChart" :options="{responsive: true, maintainAspectRatio: false}"></line-chart>
             </section>
 
             <section class="section">
