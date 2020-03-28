@@ -11,3 +11,5 @@ Vizualize COVID-19 Data using VueJS and https://covidapi.info/ api.
 - [x] Tables
 - [ ] Create Graphs
 - [ ] Add more countries
+- [ ] Create seperate pages for global and local
+- [ ] Add routing

@@ -5,7 +5,8 @@
         <meta charset="utf-8">
         <title>Vizcovid</title>
         <link rel="stylesheet" href="style.css" class="">
-        <link rel="stylesheet" href="bulma.min.css" class="">
+        <!-- <link rel="stylesheet" href="bulma.min.css" class=""> -->
+        <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/darkly/bulmaswatch.min.css">
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
         <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
@@ -13,7 +14,7 @@
     <body>
         <div id="vue-app" class="section">
             <div class="select">
-                <select v-model="selected" @change="getCountryData(this.selected)">
+                <select style="background-color: #1f2424;" v-model="selected" @change="getCountryData(this.selected)">
                     <option 
                     v-for="country in countries"
                     v-bind:value="country">
@@ -26,16 +27,17 @@
                 <div class="container">
                     <div class="columns"  v-if="rawJson != ''">
                         <div class="column">
-                            <h2>Confirmed Cases: </h2>
-                            {{ latest.confirmed  }}
+                            <h3 class="title is-2">{{ latest.confirmed  }}</h3>
+                            <h2 class="title is-5">Confirmed Cases</h2>
+                            
                         </div>
                         <div class="column">
-                          <h2>Deaths</h2>
-                          {{ latest.deaths }}
+                            <h3 class="title is-2">{{ latest.deaths  }}</h3>
+                            <h2 class="title is-5">Deaths</h2>
                         </div>
                         <div class="column">
-                          <h2>Recovered</h2>
-                          {{ latest.recovered }}
+                            <h3 class="title is-2">{{ latest.recovered  }}</h3>
+                            <h2 class="title is-5">Recovered</h2>
                         </div>
                         
                 </div>
