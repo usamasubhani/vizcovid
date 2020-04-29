@@ -1,5 +1,5 @@
 # vizcovid
-Vizualize COVID-19 Data using VueJS and https://covidapi.info/ api.
+Vizualize COVID-19 Data using VueJS and ~~https://covidapi.info/~~ api.
 
 ## Features
 - Global report
@@ -9,7 +9,7 @@ Vizualize COVID-19 Data using VueJS and https://covidapi.info/ api.
 ## To-do
 
 - [x] Tables
-- [ ] Create Graphs
-- [ ] Add more countries
-- [ ] Create seperate pages for global and local
-- [ ] Add routing
+- [x] Create Graphs
+- [x] Add more countries
+- [x] Create seperate pages for global and local
+- [x] Add routing
